@@ -4,21 +4,23 @@
       xsi:schemaLocation="http://www.springframework.org/schema/webflow
 http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd">
 
-    <var name="loginBean" class="com.lamrung.example.models.LoginBean" />
+    <var name="loginBean" class="com.lamrung.example.models.LoginBean"/>
+    <var name="loginService" class="com.lamrung.example.services.LoginService"/>
 
     <view-state id="displayLoginView" view="jsp/login.jsp" model="loginBean">
-        <transition on="performLogin" to="performLoginAction" />
+        <transition on="performLogin" to="performLoginAction"/>
     </view-state>
 
     <action-state id="performLoginAction">
-        <evaluate expression="loginService.validateUser(loginBean)" />
+        <evaluate expression="loginService.validateUser(loginBean)"/>
 
-        <transition on="true" to="displaySuccess" />
-        <transition on="false" to="displayError" />
+        <transition on="true" to="displaySuccess"/>
+        <transition on="false" to="displayError"/>
 
     </action-state>
 
     <view-state id="displaySuccess" view="jsp/success.jsp" model="loginBean"/>
 
-    <view-state id="displayError" view="jsp/failure.jsp" />
+    <view-state id="displayError" view="jsp/failure.jsp"/>
+
 </flow>
