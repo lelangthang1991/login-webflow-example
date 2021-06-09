@@ -1,6 +1,11 @@
 <%@ page isELIgnored="false"%>
-<html>
+<!DOCTYPE html>
+<html lang = "en">
 <body>
+    <head>
+        <title>Example login page</title>
+    </head>
+
     <h2>Please Login</h2>
 
     <form method="post" action="${flowExecutionUrl}">
