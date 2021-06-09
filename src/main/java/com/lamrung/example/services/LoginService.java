@@ -1,11 +1,11 @@
 package com.lamrung.example.services;
 
 import com.lamrung.example.models.LoginBean;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
 
+@Service
 public class LoginService implements Serializable {
 
     public String validateUser(LoginBean loginBean) {

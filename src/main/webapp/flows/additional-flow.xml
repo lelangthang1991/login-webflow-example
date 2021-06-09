@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd">
+
+    <var name="additionalModel" class="com.lamrung.example.models.AdditionalModel"/>
+    <var name="additionalService" class="com.lamrung.example.services.AdditionalService"/>
+
+    <view-state id="displayAdditionalModel" view="jsp/display.jsp" model="additionalModel">
+        <transition on="performInput" to="performInputAction"/>
+    </view-state>
+
+    <action-state id="performInputAction">
+        <evaluate expression="additionalService.showDefaultModel(additionalModel)"/>
+
+        <transition on="true" to="displaySuccess"/>
+        <transition on="false" to="displayError"/>
+
+    </action-state>
+
+    <view-state id="displaySuccess" view="jsp/additional-model-success.jsp" model="additionalModel"/>
+
+    <view-state id="displayError" view="jsp/additional-model-failure.jsp"/>
+</flow>
